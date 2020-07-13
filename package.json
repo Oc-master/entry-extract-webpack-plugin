@@ -29,5 +29,11 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "dayjs": "^1.8.29",
+    "lodash": "^4.17.19",
+    "replace-ext": "^2.0.0"
   }
 }
