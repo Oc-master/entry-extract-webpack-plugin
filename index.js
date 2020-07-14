@@ -16,6 +16,10 @@ class EntryExtractPlugin {
   }
 
   apply(compiler) {
+    if (!this.appContext) {
+      this.appContext = compiler.context;
+    }
+
     /** 第一次启动构建，生成初始构建入口 */
     compiler.hooks.entryOption.tap('EntryExtractPlugin', () => {
       this.applyFirstEntries();
@@ -108,7 +112,7 @@ class EntryExtractPlugin {
       const jsonFile = replaceExt(relativePath, '.json');
       const jsonPath = path.resolve(this.appContext, jsonFile);
       try {
-        const content = fs.readFileSync(jsonPath, 'utf8');
+        const content = fs.readFileSync(jsonPath,{ encoding: 'utf-8' });
         const { usingComponents = {} } = JSON.parse(content);
         const components = Object.values(usingComponents);
         const { length } = components;
@@ -129,7 +133,7 @@ class EntryExtractPlugin {
   getInitialEntries() {
     try {
       const appPath = path.resolve(this.appContext, 'app.json');
-      const content = fs.readFileSync(appPath, 'utf8');
+      const content = fs.readFileSync(appPath, { encoding: 'utf-8' });
       const { pages = [], usingComponents = {}, subpackages = [] } = JSON.parse(content);
       const { length: pagesLength } = pages;
       if (!pagesLength) {
