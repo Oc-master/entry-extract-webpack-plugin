@@ -1,5 +1,5 @@
 {
-  "name": "@medusa/entry-extract-webpack-plugin",
+  "name": "entry-extract-webpack-plugin",
   "version": "1.0.0",
   "description": "小程序构建入口生成插件",
   "main": "index.js",
