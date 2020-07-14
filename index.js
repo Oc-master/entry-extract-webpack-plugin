@@ -8,7 +8,7 @@ const SingleEntryPlugin = require('webpack/lib/SingleEntryPlugin');
 const MultiEntryPlugin = require('webpack/lib/MultiEntryPlugin');
 
 class EntryExtractPlugin {
-  constructor({ context, templateExt = '.wxml' }) {
+  constructor({ context = '', templateExt = '.wxml' }) {
     this.appContext = context;
     this.templateExt = templateExt;
     this.initialEntries = [];
