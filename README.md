@@ -3,13 +3,13 @@
 ## Installation
 
 ```shell
-$ npm install @medusa/entry-extract-webpack-plugin --save
+$ npm install entry-extract-webpack-plugin --save
 ```
 
 ## Usage
 
 ```javascript
-const EntryExtractPlugin = require('@medusa/entry-extract-webpack-plugin');
+const EntryExtractPlugin = require('entry-extract-webpack-plugin');
 
 module.exports = {
   // ...

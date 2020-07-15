@@ -1,3 +1,17 @@
+## [1.0.1](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.0...v1.0.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* **package.json:** 升级版本至v1.0.1,更新readme.md文件 ([52f798c](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/52f798ccdb6a7419ea628af2234082a5e2405679))
+
+
+### Features
+
+* **package.json:** 修改包名称 ([39df811](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/39df811c024671022def0e5ab411b6dbdf89d14d))
+
+
+
 # 1.0.0 (2020-07-14)
 
 
