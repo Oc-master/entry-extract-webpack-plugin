@@ -39,7 +39,3 @@ module.exports = {
 ## License
 
 [MIT](https://github.com/Oc-master/entry-extract-webpack-plugin/blob/master/LICENSE)
-
-### keywords
-
-`webpack` `plugin` `miniprogram`
