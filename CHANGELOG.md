@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.2...v1.0.3) (2020-07-22)
+
+
+### Features
+
+* **index.js:** 增加依赖收集忽略UI组件和插件功能 ([d267f8c](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/d267f8cdb05ede1e5f3caa8048ea9b5acd9db9a4))
+
+
+
 ## [1.0.1](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.0...v1.0.1) (2020-07-15)
 
 
