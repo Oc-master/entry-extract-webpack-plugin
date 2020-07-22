@@ -87,7 +87,7 @@ class EntryExtractPlugin {
     const absolutePath = path.resolve(this.appContext, modulePath);
     const isNpmModule = absolutePath.includes('miniprogram_npm');
     if (isNpmModule) return { isQualification: false, isContinue: false };
-    const isPlugin = absolutePath.includes('plugin://');
+    const isPlugin = absolutePath.includes('plugin:');
     if (isPlugin) return { isQualification: false, isContinue: false };
     const isUI = absolutePath.includes('vant') || absolutePath.includes('iview');
     if (isUI) return { isQualification: false, isContinue: false };
