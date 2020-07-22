@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.3...v1.0.4) (2020-07-22)
+
+
+### Bug Fixes
+
+* **index.js:** 修复插件依赖忽略功能失效问题 ([94bfd3c](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/94bfd3ccbcc54cfd6cfab973c54bec24018b6cb4))
+
+
+
 ## [1.0.3](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.2...v1.0.3) (2020-07-22)
 
 
