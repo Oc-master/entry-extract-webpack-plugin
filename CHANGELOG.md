@@ -3,7 +3,6 @@
 
 ### Features
 
-* **index.js:** 增加依赖收集忽略UI组件和插件功能 ([307e9c1](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/307e9c1ad5528f65fab87f537ce92f78a9da47c9))
 * **index.js:** 添加编译过程提示功能 ([5c1d11f](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/5c1d11f5b99ad166ce32080cf7600b0c22bc87df))
 
 
