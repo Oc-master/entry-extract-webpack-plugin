@@ -1,5 +1,7 @@
 # entry-extract-webpack-plugin
 
+微信小程序构建入口生成插件，依赖于源代码目录中的 app.json 文件进行入口生成，属于 webpack-build-miniprogram 工具包核心依赖。
+
 ## Installation
 
 ```shell

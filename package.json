@@ -1,6 +1,6 @@
 {
   "name": "entry-extract-webpack-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "小程序构建入口生成插件",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,8 @@
   "keywords": [
     "webpack",
     "plugin",
-    "miniprogram"
+    "miniprogram",
+    "wx"
   ],
   "author": "O_c",
   "license": "MIT",
