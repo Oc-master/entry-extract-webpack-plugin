@@ -14,7 +14,8 @@
   "keywords": [
     "webpack",
     "plugin",
-    "miniprogram"
+    "miniprogram",
+    "wx"
   ],
   "author": "O_c",
   "license": "MIT",
