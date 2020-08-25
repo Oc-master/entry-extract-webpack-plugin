@@ -41,14 +41,6 @@ class EntryExtractPlugin {
       }
       callback();
     });
-
-    compiler.hooks.done.tap('EntryExtractPlugin', () => {
-      console.log(chalk.gray(`\n[${dayjs().format('HH:mm:ss')}]`), chalk.green('INFO: Compiled successfully!\n'));
-    });
-
-    compiler.hooks.failed.tap('EntryExtractPlugin', () => {
-      console.log(chalk.gray(`\n[${dayjs().format('HH:mm:ss')}]`), chalk.red('Error: Compiled failed!\n'));
-    });
   }
 
   /**
