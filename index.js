@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const ora = require('ora');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
 const { difference } = require('lodash');
@@ -15,7 +14,6 @@ class EntryExtractPlugin {
     this.templateExt = templateExt;
     this.initialEntries = [];
     this.entries = [];
-    this.spinner = ora();
   }
 
   apply(compiler) {
@@ -25,13 +23,11 @@ class EntryExtractPlugin {
 
     /** 第一次启动构建，生成初始构建入口 */
     compiler.hooks.entryOption.tap('EntryExtractPlugin', () => {
-      this.spinner.start('正在编译中...');
       this.applyFirstEntries();
       this.entries.forEach((entry) => this.applyEntry(entry, `./${entry}.js`).apply(compiler));
     });
 
     compiler.hooks.watchRun.tap('EntryExtractPlugin', (params) => {
-      this.spinner.start('正在编译中...');
       const { mtimes } = params.watchFileSystem.watcher;
       const [module] = Object.keys(mtimes);
       if (!module) return undefined;
@@ -47,12 +43,10 @@ class EntryExtractPlugin {
     });
 
     compiler.hooks.done.tap('EntryExtractPlugin', () => {
-      this.spinner.stop();
       console.log(chalk.gray(`\n[${dayjs().format('HH:mm:ss')}]`), chalk.green('INFO: Compiled successfully!\n'));
     });
 
     compiler.hooks.failed.tap('EntryExtractPlugin', () => {
-      this.spinner.stop();
       console.log(chalk.gray(`\n[${dayjs().format('HH:mm:ss')}]`), chalk.red('Error: Compiled failed!\n'));
     });
   }
