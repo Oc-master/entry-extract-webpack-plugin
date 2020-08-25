@@ -1,3 +1,13 @@
+## [1.0.7](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.7) (2020-08-25)
+
+
+### Features
+
+* **index.js:** 去除ora编译提示功能 ([675f8cb](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/675f8cb9ede79a6e19fee20f17b9c3f7959563f5))
+* **index.js:** 去除构建成功提示语 ([9057419](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/9057419a44585a6031a68a507697f55636ca1c99))
+
+
+
 ## [1.0.5](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.5) (2020-08-18)
 
 
