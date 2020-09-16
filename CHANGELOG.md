@@ -1,3 +1,12 @@
+## [1.0.8](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.8) (2020-09-16)
+
+
+### Features
+
+* **index.js:** 添加vendors文件初始化生成功能 ([8dc9c5a](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/8dc9c5a26313b37a2a8e368fb7522330ee102cec))
+
+
+
 ## [1.0.7](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.7) (2020-08-25)
 
 
