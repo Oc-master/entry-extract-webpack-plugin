@@ -39,6 +39,9 @@ class EntryExtractPlugin {
       if (!compilation.assets['commons.js']) {
         compilation.assets['commons.js'] = { source: () => '', size: () => 0 };
       }
+      if (!compilation.assets['vendors.js']) {
+        compilation.assets['vendors.js'] = { source: () => '', size: () => 0 };
+      }
       callback();
     });
   }
