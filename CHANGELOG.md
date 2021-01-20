@@ -1,3 +1,12 @@
+## [1.0.9](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.9) (2021-01-20)
+
+
+### Features
+
+* **index.js:** 完成读取多类文件类型的功能 ([4479a7f](https://github.com/Oc-master/entry-extract-webpack-plugin/commit/4479a7f330d0b3cba711734543ec3076b0db08fd))
+
+
+
 ## [1.0.8](https://github.com/Oc-master/entry-extract-webpack-plugin/compare/v1.0.4...v1.0.8) (2020-09-16)
 
 
