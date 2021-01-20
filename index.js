@@ -24,7 +24,7 @@ class EntryExtractPlugin {
     /** 第一次启动构建，生成初始构建入口 */
     compiler.hooks.entryOption.tap('EntryExtractPlugin', () => {
       this.applyFirstEntries();
-      this.entries.forEach((entry) => this.applyEntry(entry, `./${entry}.js`).apply(compiler));
+      this.entries.forEach(({ relativePath: entry, suffic }) => this.applyEntry(entry, `./${entry}${suffic}`).apply(compiler));
     });
 
     compiler.hooks.watchRun.tap('EntryExtractPlugin', (params) => {
@@ -32,7 +32,7 @@ class EntryExtractPlugin {
       const [module] = Object.keys(mtimes);
       if (!module) return undefined;
       const entries = this.rebuildEntries(module);
-      entries && entries.forEach((entry) => this.applyEntry(entry, `./${entry}.js`).apply(compiler));
+      entries && entries.forEach(({ relativePath: entry, suffic }) => this.applyEntry(entry, `./${entry}${suffic}`).apply(compiler));
     });
 
     compiler.hooks.emit.tapAsync('EntryExtractPlugin', (compilation, callback) => {
@@ -84,16 +84,25 @@ class EntryExtractPlugin {
     if (isPlugin) return { isQualification: false, isContinue: false };
     const isUI = absolutePath.includes('vant') || absolutePath.includes('iview');
     if (isUI) return { isQualification: false, isContinue: false };
+    const msPath = replaceExt(absolutePath, '.ms');
     const jsPath = replaceExt(absolutePath, '.js');
-    const isQualification = fs.existsSync(jsPath);
-    !isQualification && console.log(chalk.gray(`[${dayjs().format('HH:mm:ss')}]`), chalk.yellow(`WARNING: "${replaceExt(modulePath, '.js')}" 逻辑文件缺失`));
+    const tsPath = replaceExt(absolutePath, '.ts');
+    const hasMs = fs.existsSync(msPath) ? '.ms' : '';
+    const hasJs = fs.existsSync(jsPath) ? '.js' : '';
+    const hasTs = fs.existsSync(tsPath) ? '.ts' : '';
+    const suffic = hasMs || hasJs || hasTs;
+    !suffic && console.log(chalk.gray(`[${dayjs().format('HH:mm:ss')}]`), chalk.yellow(`WARNING: "${replaceExt(modulePath, '.js')}" 逻辑文件缺失`));
     const jsonPath = replaceExt(absolutePath, '.json');
     const isContinue = fs.existsSync(jsonPath);
     !isContinue && console.log(chalk.gray(`[${dayjs().format('HH:mm:ss')}]`), chalk.yellow(`WARNING: "${replaceExt(modulePath, '.json')}" 配置文件缺失`));
     const templatePath = replaceExt(absolutePath, this.templateExt);
     const isExistence = fs.existsSync(templatePath);
-    !isExistence && console.log(chalk.gray(`[${dayjs().format('HH:mm:ss')}]`), chalk.yellow(`WARNING: "${replaceExt(modulePath, this.templateExt)}" 模版文件缺失`));
-    return { isQualification, isContinue };
+    !hasMs && !isExistence && console.log(chalk.gray(`[${dayjs().format('HH:mm:ss')}]`), chalk.yellow(`WARNING: "${replaceExt(modulePath, this.templateExt)}" 模版文件缺失`));
+    return {
+      suffic,
+      isContinue,
+      isQualification: !!suffic,
+    };
   }
 
   /**
@@ -104,8 +113,8 @@ class EntryExtractPlugin {
    */
   addEntries(context, modulePath, entries) {
     const relativePath = this.transformRelative(context, modulePath);
-    const { isQualification, isContinue } = this.checkModule(relativePath);
-    isQualification && entries.push(relativePath);
+    const { isQualification, isContinue, suffic } = this.checkModule(relativePath);
+    isQualification && entries.push({ relativePath, suffic });
     if (isContinue) {
       const jsonFile = replaceExt(relativePath, '.json');
       const jsonPath = path.resolve(this.appContext, jsonFile);
